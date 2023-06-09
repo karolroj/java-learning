@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import learning.springboot.learning.models.Video;
+import learning.springboot.learning.models.VideoSearch;
 import learning.springboot.learning.services.VideoService;
 
 @RestController
@@ -29,5 +30,10 @@ public class ApiController {
     @PostMapping("/api/video")
     public Video addVideo(@RequestBody Video video) {
         return videoService.addVideo(video);
+    }
+
+    @PostMapping("/api/videos/search")
+    public List<Video> searchVideos(@RequestBody VideoSearch videoSearch) {
+        return videoService.search(videoSearch);
     }
 }
